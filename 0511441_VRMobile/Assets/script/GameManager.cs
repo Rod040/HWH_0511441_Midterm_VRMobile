@@ -62,13 +62,13 @@ public class GameManager : MonoBehaviour
     
     public IEnumerator MoveChest()
     {
-        chest.GetComponent<CapsuleCollider>().enabled = false;
+        chest.GetComponent<MeshCollider>().enabled = false;
 
         aud.PlayOneShot(soundWoodMove, 1);
 
         for (int i = 0; i < 15; i++)
         {
-        chest.position -= chest.forward*0.2f;
+        chest.position += chest.up*0.2f;
         yield return new WaitForSeconds(0.1f);
         }
     }
